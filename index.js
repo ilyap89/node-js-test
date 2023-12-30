@@ -33,7 +33,7 @@ app.get('/', function (req, res) {
     title: 'BackSpace Academy & Elastic Beanstalk'
     })
     res.status(200).end();
-}
+})
 server.listen(port, hostname, () => {
  console.log(`Server running at http://${hostname}:${port}/`);
 });
