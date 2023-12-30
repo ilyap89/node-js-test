@@ -7,7 +7,7 @@
 //}).listen(3000); //the server object listens on port 80
 
 const http = require('http');
-const hostname = '172.31.95.38'; // Make sure to change this to your EC2 private IP
+const hostname = '172.31.26.45'; // Make sure to change this to your EC2 private IP
 const port = 3000;
 const server = http.createServer((req, res) => {
  res.statusCode = 200;
