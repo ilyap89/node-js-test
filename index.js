@@ -1,5 +1,5 @@
 const http = require('http');
-const hostname = '172.31.26.45'; // Make sure to change this to your EC2 private IP
+const hostname = '172.31.17.34'; // Make sure to change this to your EC2 private IP
 const port = 3000;
 const server = http.createServer((req, res) => {
  res.statusCode = 200;
