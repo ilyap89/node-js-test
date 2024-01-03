@@ -19,6 +19,28 @@ const server = http.createServer((req, res) => {
         res.end('Not Found');
     }
 });
+const express = require('express');
+const mysql = require('mysql');
+const config = require('./config');
+
+const app = express();
+
+// Create a MySQL pool
+const pool = mysql.createPool(config.database);
+app.get('/api/photos', (req, res) => {
+    // Fetch photos data from MySQL database
+    pool.query('SELECT * FROM photos', (error, results) => {
+        if (error) {
+            console.error('Error fetching photos from MySQL:', error);
+            res.status(500).json({ error: 'Internal Server Error' });
+        } else {
+            res.json(results);
+        }
+    });
+});
+app.listen(PORT, () => {
+    console.log(`API server listening on port ${PORT}`);
+});
 server.listen(port, hostname, () => {
  console.log(`Server running at http://${hostname}:${port}/`);
 });
