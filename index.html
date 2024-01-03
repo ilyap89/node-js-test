@@ -3,10 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Node.js App</title>
+    <title>Your Photo Gallery</title>
 </head>
 <body>
-    <h1>Welcome to Your Node.js App!</h1>
+    <h1>Your Photo Gallery</h1>
+
+    <p>Welcome to my Node.js App!</p>
     <p>This is a simple HTML screen served by your Node.js server.</p>
+    <p>The pictures are fetched from a SQL server connected to an RDS instance.</p>
+
+    <div id="photo-container"></div>
+
+    <script>
+        // Fetch photos data from the API endpoint
+        fetch('/api/photos')
+            .then(response => response.json())
+            .then(data => {
+                const photoContainer = document.getElementById('photo-container');
+
+                // Display photos on the web page
+                data.forEach(photo => {
+                    const imageElement = document.createElement('img');
+                    imageElement.src = photo.s3_url;
+                    imageElement.alt = photo.title;
+                    photoContainer.appendChild(imageElement);
+                });
+            })
+            .catch(error => {
+                console.error('Error fetching photos:', error);
+            });
+    </script>
 </body>
 </html>
