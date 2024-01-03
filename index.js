@@ -38,6 +38,7 @@ app.get('/api/photos', (req, res) => {
         }
     });
 });
+const PORT = 1433; // Replace with your desired port number
 app.listen(PORT, () => {
     console.log(`API server listening on port ${PORT}`);
 });
