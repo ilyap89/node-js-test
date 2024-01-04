@@ -13,7 +13,16 @@ const server = http.createServer((req, res) => {
 
         // Pipe the read stream to the response
         readStream.pipe(res);
-    } else {
+    } 
+    else if (req.url === '/api/photos') {
+        // Handle /api/photos route
+        // For example, you can send a JSON response
+        const photosData = { photos: ['photo1.jpg', 'photo2.jpg', 'photo3.jpg'] };
+        res.setHeader('Content-Type', 'application/json');
+        res.end(JSON.stringify(photosData));
+    
+    
+    }   else {
         // Handle other routes or files as needed
         res.writeHead(404, { 'Content-Type': 'text/plain' });
         res.end('Not Found');
