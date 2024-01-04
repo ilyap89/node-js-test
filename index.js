@@ -54,22 +54,22 @@ const config = require('./config');
 const app = express();
 
 // Create a MySQL pool
-const pool = mysql.createPool(config.database);
-app.get('/api/photos', (req, res) => {
+//const pool = mysql.createPool(config.database);
+//app.get('/api/photos', (req, res) => {
     // Fetch photos data from MySQL database
-    pool.query('SELECT * FROM photos', (error, results) => {
-        if (error) {
-            console.error('Error fetching photos from MySQL:', error);
-            res.status(500).json({ error: 'Internal Server Error' });
-        } else {
-            res.json(results);
-        }
-    });
-});
-const PORT = 1433; // Replace with your desired port number
-app.listen(PORT, () => {
-    console.log(`API server listening on port ${PORT}`);
-});
-server.listen(port, hostname, () => {
- console.log(`Server running at http://${hostname}:${port}/`);
-});
+//    pool.query('SELECT * FROM photos', (error, results) => {
+//        if (error) {
+//            console.error('Error fetching photos from MySQL:', error);
+//            res.status(500).json({ error: 'Internal Server Error' });
+//        } else {
+//            res.json(results);
+//        }
+//    });
+//});
+//const PORT = 1433; // Replace with your desired port number
+//app.listen(PORT, () => {
+//    console.log(`API server listening on port ${PORT}`);
+//});
+//server.listen(port, hostname, () => {
+// console.log(`Server running at http://${hostname}:${port}/`);
+//});
